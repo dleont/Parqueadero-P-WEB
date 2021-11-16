@@ -79,6 +79,8 @@ public class Main extends javax.swing.JFrame {
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("Cliente");
+        fileMenu.setEnabled(false);
+        fileMenu.setFocusable(false);
 
         itemCrear.setMnemonic('o');
         itemCrear.setText("Crear");

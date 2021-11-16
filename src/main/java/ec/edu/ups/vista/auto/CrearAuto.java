@@ -51,7 +51,7 @@ public class CrearAuto extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Ventana Crear Auto");
 
-        jLabel1.setText("Matricula");
+        jLabel1.setText("Placa");
 
         jLabel2.setText("Marca");
 
