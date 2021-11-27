@@ -5,7 +5,7 @@
 package ec.edu.ups.vista.persona;
 
 import ec.edu.ups.controladorDAO.PersonaDAO;
-import ec.edu.ups.modelo.Persona;
+import ec.edu.ups.modeloON.Persona;
 import javax.swing.JOptionPane;
 
 /**

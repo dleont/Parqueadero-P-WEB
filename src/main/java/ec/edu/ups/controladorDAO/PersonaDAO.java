@@ -5,7 +5,7 @@
 package ec.edu.ups.controladorDAO;
 
 import java.util.Set;
-import ec.edu.ups.modelo.Persona;
+import ec.edu.ups.modeloON.Persona;
 import java.util.HashSet;
 
 /**

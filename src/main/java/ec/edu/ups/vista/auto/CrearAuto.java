@@ -5,7 +5,7 @@
 package ec.edu.ups.vista.auto;
 
 import ec.edu.ups.controladorDAO.AutoDAO;
-import ec.edu.ups.modelo.Auto;
+import ec.edu.ups.modeloON.Auto;
 import javax.swing.JOptionPane;
 
 /**
@@ -156,14 +156,11 @@ public class CrearAuto extends javax.swing.JInternalFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         auto = new Auto();
 
-        auto.setMatricula(txtMatricula.getText());
+        auto.setPlaca(txtMatricula.getText());
         auto.setMarca(txtMarca.getText());
         auto.setModelo(txtModelo.getText());
-        //int s=String.valueOf(txtAño.getText());
-        //auto.setAño(Integer.toString(txtAño.getText()));
-        //auto.setAño(String.valueOf(Integer.toString((txtAño.getText()))));
-        
-        if(auto.getMatricula().isEmpty() || auto.getMarca().isEmpty() || auto.getModelo().isEmpty() ){
+               
+        if(auto.getPlaca().isEmpty() || auto.getMarca().isEmpty() || auto.getModelo().isEmpty() ){
             JOptionPane.showMessageDialog(rootPane, "Error, Faltan Datos", "Error", JOptionPane.WARNING_MESSAGE);
         }else{
             autDao.crear(auto);

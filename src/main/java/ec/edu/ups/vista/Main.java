@@ -7,6 +7,7 @@ package ec.edu.ups.vista;
 import ec.edu.ups.controladorDAO.AutoDAO;
 import ec.edu.ups.controladorDAO.PersonaDAO;
 import ec.edu.ups.vista.auto.CrearAuto;
+import ec.edu.ups.vista.auto.RudAuto;
 import ec.edu.ups.vista.persona.CrearCliente;
 import ec.edu.ups.vista.persona.ListarCliente;
 import ec.edu.ups.vista.persona.RudCliente;
@@ -23,6 +24,7 @@ public class Main extends javax.swing.JFrame {
     
     //Auto
     private CrearAuto crearAuto;
+    private RudAuto rudAuto;
     
     private PersonaDAO perDao;
     private AutoDAO autoDao;
@@ -134,6 +136,11 @@ public class Main extends javax.swing.JFrame {
 
         copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("RUD");
+        copyMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copyMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(copyMenuItem);
 
         pasteMenuItem.setMnemonic('p');
@@ -223,6 +230,15 @@ public class Main extends javax.swing.JFrame {
             desktopPane.add(crearAuto);
             }
     }//GEN-LAST:event_cutMenuItemActionPerformed
+
+    private void copyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItemActionPerformed
+        if (rudAuto == null || !rudAuto.isVisible()) {
+            rudAuto = new RudAuto(autoDao);
+            rudAuto.setVisible(true);
+            
+            desktopPane.add(rudAuto);
+            }
+    }//GEN-LAST:event_copyMenuItemActionPerformed
 
     /**
      * @param args the command line arguments

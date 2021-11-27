@@ -5,7 +5,7 @@
 package ec.edu.ups.controladorDAO;
 
 import java.util.Set;
-import ec.edu.ups.modelo.Auto;
+import ec.edu.ups.modeloON.Auto;
 import java.util.HashSet;
 
 /**
@@ -21,7 +21,7 @@ public class AutoDAO {
     }
     
     /*
-    Metodo para crear una persona
+    Metodo para crear un auto
     */
     public void crear(Auto a){
         list.add(a);
@@ -29,11 +29,11 @@ public class AutoDAO {
     }
     
     /*
-    Metodo para buscar una persona por la cedula
+    Metodo para buscar una persona por la placa
     */
     public Auto buscar (String matri){
         for (Auto per: list){
-            if (per.getMatricula().equals(matri)){
+            if (per.getPlaca().equals(matri)){
                 return per;
             }
         }
@@ -41,7 +41,7 @@ public class AutoDAO {
     }
     
     /*
-    Metodo para actualizar una persona
+    Metodo para actualizar un auto
     */
     public void update (Auto p){
         if (list.contains(p)){
@@ -51,7 +51,7 @@ public class AutoDAO {
     }
     
     /*
-    Metodo para eliminar una persona
+    Metodo para eliminar un auto
     */
     public void delete (Auto p){
         if (list.contains(p)){
@@ -60,7 +60,7 @@ public class AutoDAO {
     }
     
     /*
-    Metodo para listar las personas registradas
+    Metodo para listar los autos registradas
     */
     public Set<Auto> getList(){
         return list;

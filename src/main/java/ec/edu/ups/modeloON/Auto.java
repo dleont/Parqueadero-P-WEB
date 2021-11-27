@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ec.edu.ups.modelo;
+package ec.edu.ups.modeloON;
 
 /**
  *
  * @author Darwin
  */
 public class Auto {
-    private String matricula;
+    private String placa;
     private String marca;
     private String modelo;
     private int año;
@@ -18,19 +18,19 @@ public class Auto {
         
     }
     
-    public Auto(String matricula, String marca, String modelo, int año){
-        this.matricula=matricula;
+    public Auto(String placa, String marca, String modelo, int año){
+        this.placa=placa;
         this.marca=marca;
         this.modelo=modelo;
         this.año=año;
     }
 
-    public String getMatricula() {
-        return matricula;
+    public String getPlaca() {
+        return placa;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
     public String getMarca() {
@@ -59,7 +59,7 @@ public class Auto {
 
     @Override
     public String toString() {
-        return "Auto{" + "matricula= " + matricula + ", marca= " + marca + ", modelo= " + modelo + ", año=" + año + '}';
+        return "Auto{" + "Placa= " + placa + ", marca= " + marca + ", modelo= " + modelo + ", año=" + año + '}';
     }
     
     
