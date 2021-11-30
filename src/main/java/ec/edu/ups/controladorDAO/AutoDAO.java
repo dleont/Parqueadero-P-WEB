@@ -31,9 +31,9 @@ public class AutoDAO {
     /*
     Metodo para buscar una persona por la placa
     */
-    public Auto buscar (String matri){
+    public Auto buscar (String placa){
         for (Auto per: list){
-            if (per.getPlaca().equals(matri)){
+            if (per.getPlaca().equals(placa)){
                 return per;
             }
         }
@@ -64,5 +64,9 @@ public class AutoDAO {
     */
     public Set<Auto> getList(){
         return list;
+    }
+    
+    public void limpiar(){
+        
     }
 }
