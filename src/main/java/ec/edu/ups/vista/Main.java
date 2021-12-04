@@ -7,6 +7,7 @@ package ec.edu.ups.vista;
 import ec.edu.ups.controladorDAO.AutoDAO;
 import ec.edu.ups.controladorDAO.PersonaDAO;
 import ec.edu.ups.vista.auto.CrearAuto;
+import ec.edu.ups.vista.auto.ListarAuto;
 import ec.edu.ups.vista.auto.RudAuto;
 import ec.edu.ups.vista.persona.CrearCliente;
 import ec.edu.ups.vista.persona.ListarCliente;
@@ -25,6 +26,7 @@ public class Main extends javax.swing.JFrame {
     //Auto
     private CrearAuto crearAuto;
     private RudAuto rudAuto;
+    private ListarAuto listarAuto;
     
     private PersonaDAO perDao;
     private AutoDAO autoDao;
@@ -72,7 +74,7 @@ public class Main extends javax.swing.JFrame {
         desktopPane.setLayout(desktopPaneLayout);
         desktopPaneLayout.setHorizontalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 715, Short.MAX_VALUE)
+            .addGap(0, 868, Short.MAX_VALUE)
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,8 +198,8 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(desktopPane)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,7 +261,12 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_copyMenuItemActionPerformed
 
     private void pasteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasteMenuItemActionPerformed
-        // TODO add your handling code here:
+        if (listarAuto == null || !listarAuto.isVisible()) {
+            listarAuto = new ListarAuto(autoDao);
+            listarAuto.setVisible(true);
+            
+            desktopPane.add(listarAuto);
+            }
     }//GEN-LAST:event_pasteMenuItemActionPerformed
 
     private void deleteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMenuItemActionPerformed

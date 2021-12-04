@@ -6,6 +6,7 @@ package ec.edu.ups.vista.auto;
 
 import ec.edu.ups.controladorDAO.AutoDAO;
 import ec.edu.ups.modeloON.Auto;
+import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
 
 /**
@@ -159,7 +160,8 @@ public class CrearAuto extends javax.swing.JInternalFrame {
         auto.setPlaca(txtMatricula.getText());
         auto.setMarca(txtMarca.getText());
         auto.setModelo(txtModelo.getText());
-               
+        auto.setAño(parseInt(txtAño.getText()));
+ 
         if(auto.getPlaca().isEmpty() || auto.getMarca().isEmpty() || auto.getModelo().isEmpty() ){
             JOptionPane.showMessageDialog(rootPane, "Error, Faltan Datos", "Error", JOptionPane.WARNING_MESSAGE);
         }else{

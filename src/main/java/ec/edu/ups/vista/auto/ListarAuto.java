@@ -4,17 +4,38 @@
  */
 package ec.edu.ups.vista.auto;
 
+import ec.edu.ups.controladorDAO.AutoDAO;
+import ec.edu.ups.modeloON.Auto;
+import java.util.Set;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author darwin
  */
 public class ListarAuto extends javax.swing.JInternalFrame {
+    private AutoDAO autoDao;
 
     /**
      * Creates new form ListarAuto
      */
-    public ListarAuto() {
+    public ListarAuto(AutoDAO autoDao) {
         initComponents();
+        this.autoDao=autoDao;
+        llenarDatos();
+    }
+    
+    public void llenarDatos(){
+        DefaultTableModel modleo = (DefaultTableModel) tblAuto.getModel();
+        Set<Auto> lista = autoDao.getList();
+        for (Auto auto : lista) {
+            // Object[] datos = new Object[5]; //forma 1
+            Object[] datos = {auto.getPlaca(), // forma 2 
+                auto.getMarca(),
+                auto.getModelo(),
+                auto.getAño()};
+                modleo.addRow(datos);
+        }
     }
 
     /**
@@ -29,7 +50,7 @@ public class ListarAuto extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblAuto = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -39,12 +60,9 @@ public class ListarAuto extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Autos:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblAuto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Placa", "Modelo", "Marca", "Año"
@@ -65,7 +83,7 @@ public class ListarAuto extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblAuto);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -76,7 +94,7 @@ public class ListarAuto extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,14 +113,14 @@ public class ListarAuto extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -113,6 +131,6 @@ public class ListarAuto extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable tblAuto;
     // End of variables declaration//GEN-END:variables
 }

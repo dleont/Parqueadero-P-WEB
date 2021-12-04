@@ -29,7 +29,7 @@ public class AutoDAO {
     }
     
     /*
-    Metodo para buscar una persona por la placa
+    Metodo para buscar un auto por la placa
     */
     public Auto buscar (String placa){
         for (Auto per: list){
